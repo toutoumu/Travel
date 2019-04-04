@@ -1,3 +1,13 @@
+Setting Sync 快捷键：
+
+1) 上传： Shift + Alt + U (Sync: Update / Upload Settings)
+
+2) 下载： Shift + Alt + D (Sync: Download  Settings)
+
+GitHub Token: c742d30b2e268337923767754cdcd885ee31fd0e
+GitHub Gist: 7a7accc48ffc9b63e1efa5ea30e9e242 // 使用这个下载配置
+GitHub Gist Type: Secret
+
 # 完美解决 vscode 在 style 中没有代码提示的问题
 
 设置 -> 搜索 prevent -> 把 Snippets Prevent Quick Suggestions 勾掉即可
