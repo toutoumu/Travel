@@ -24,7 +24,8 @@ export default new Router({
         name: 'Detail',
         // component: Detail
         component: () => import('@/pages/detail/Detail.vue')
-    }],
+        }],
+    // 解决进入新页面时页面不停留在顶部问题
     scrollBehavior(to, from, savedPosition) {
         return {
             x: 0,

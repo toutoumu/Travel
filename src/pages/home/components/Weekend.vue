@@ -2,7 +2,7 @@
   <div v-if="showWeek">
     <div class="title">周末去哪儿</div>
     <ul>
-      <li class="item border-bottom" v-for="item in list" :key="item.id">
+      <li class="item border-bottom" v-for="item in weekendList" :key="item.id">
         <div class="item-img-wrap">
           <img class="item-img" v-bind:src="item.imgUrl" alt>
         </div>
@@ -19,19 +19,20 @@
   export default {
     name: "Weekend",
     props: {
-      list: {
+      weekendList: {
         type: Array
       }
     },
     computed: {
       showWeek() {
-        return this.list.length;
+        return this.weekendList.length;
       }
     }
   };
 </script>
 
 <style lang="stylus" scoped>
+    /*关于为什么要加 ~ 请查看README文件*/
   @import '~styles/mixins.styl';
 
   .title {
@@ -44,7 +45,7 @@
     .item-img-wrap {
       overflow: hidden;
       height: 0;
-      padding-bottom: 33.9%;
+      padding-bottom: 37.09%;
 
       .item-img {
         width: 100%;

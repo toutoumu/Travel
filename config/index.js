@@ -13,8 +13,10 @@ module.exports = {
         proxyTable: {
             // 如下配置会将 /api/getUser 转换成 http://localhost:8080/static/mock/getUser
             '/api': {
+                // 相当于 baseurl
                 target: 'http://localhost:8080',
                 pathRewrite: {
+                    // 将路径中的 [/api] 替换为 [/static/mock]
                     '^/api': '/static/mock'
                 }
             }

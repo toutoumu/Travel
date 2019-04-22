@@ -1,143 +1,136 @@
 <template>
-  <div class="list" ref="wrapper">
-    <div>
-      <div class="area">
-        <div class="title border-topbottom">当前城市</div>
-        <div class="button-list">
-          <div class="button-wrapper">
-            <div class="button" @click="handlerCityClick(currentCity)">{{currentCity}}</div>
-          </div>
+    <div class="list" ref="wrapper">
+        <div>
+            <div class="area">
+                <div class="title border-topbottom">您的位置</div>
+                <div class="button-list">
+                    <!--注意这里不用使用 this.currentCity-->
+                    <div class="button-wrapper" @click="handlerCityClick(currentCity)">
+                        <div class="button">{{this.currentCity}}</div>
+                    </div>
+                </div>
+            </div>
+            <!--热门城市-->
+            <div class="area">
+                <div class="title border-topbottom">热门城市</div>
+                <div class="button-list">
+                    <div class="button-wrapper" v-for="item in hotcities" :key="item.id">
+                        <div class="button" @click="handlerCityClick(item.name)"> {{item.name}}</div>
+                    </div>
+
+                </div>
+            </div>
+            <!--循环object-->
+            <div class="area" v-for="(item,key) in cities" :key="key">
+                <div class="title border-topbottom" :ref="key">{{key}}</div>
+                <div class="item-list" v-for="city in item" :key="city.id">
+                    <div class="item border-bottom" @click="handlerCityClick(city.name)">{{city.name}}</div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="area">
-        <div class="title border-topbottom">热门城市</div>
-        <div class="button-list">
-          <div
-            class="button-wrapper"
-            v-for="item in hots"
-            :key="item.id"
-            @click="handlerCityClick(item.name)"
-          >
-            <div class="button">{{item.name}}</div>
-          </div>
-        </div>
-      </div>
-      <div class="area" v-for="(item,key) in cities" :key="key" :ref="key">
-        <div class="title border-topbottom">{{ key }}</div>
-        <div class="item-list" v-for="i in item" :key="i.id">
-          <div class="item border-bottom" @click="handlerCityClick(i.name)">{{i.name}}</div>
-        </div>
-      </div>
     </div>
-  </div>
+
 </template>
 
 <script>
-  import BScroll from "better-scroll";
-  import { mapState, mapMutations } from "vuex";
+    import Bscrool from 'better-scroll'
+    import {mapState, mapMutations} from 'vuex'
 
-  export default {
-    name: "List",
-    computed: {
-      ...mapState({
-        currentCity: "city"
-      })
-    },
-    props: {
-      letter: String,
-      cities: Object,
-      hots: Array
-    },
-    mounted() {
-      this.scroll = new BScroll(this.$refs.wrapper);
-    },
-    methods: {
-      ...mapMutations(["changeCity"]),
-      handlerCityClick(city) {
-        // 派发city改变事件, 通知store更新city (index.js)
-        // this.$store.dispatch("changeCity", city);
-        // 直接提交 事件, 这里会调用 mutations 中的 changeCity
-        // this.$store.commit("changeCity", city);
-        this.changeCity(city);
-        this.$router.push("/");
-      }
-    },
-    watch: {
-      letter() {
-        if (this.letter) {
-          // 这里通过循环生成的ref得到的是一个数组
-          const element = this.$refs[this.letter][0];
-          console.log(element);
-          this.scroll.scrollToElement(element);
-        }
-      }
+    export default {
+        name: 'List',
+        props: {
+            hotcities: Array,
+            cities: Object,
+            letter: String,
+        },
+        computed: {
+            // 将state(state.js)中定义的 city 展开到 这里的计算属性 currentCity
+            ...mapState({
+                currentCity: 'city',
+            }),
+        },
+        mounted() {
+            this.scroll = new Bscrool(this.$refs.wrapper)
+        },
+        methods: {
+            // 将 mutations.js 中的方法展开放在这里
+            ...mapMutations(['changeCity']),
+            handlerCityClick(city) {
+                this.$store.dispatch('changeCity', city)
+                this.changeCity(city) // 更新全局状态city
+                this.$router.back()
+            },
+        },
+        watch: {
+            letter(newValue, oldValue) {
+                if (this.letter) {
+                    const element = this.$refs[this.letter][0]
+                    this.scroll.scrollToElement(element)
+                }
+            },
+        },
     }
-  };
 </script>
 
 <style lang="stylus" scoped>
-  @import '~styles/varibles.styl';
 
-  .border-topbottom {
-    &:before {
-      border-color: #ccc;
-    }
-
-    &:after {
-      border-color: #ccc;
-    }
-  }
-
-  .list {
-    position: absolute;
-    overflow: hidden;
-    top: 1.58rem;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    .border-bottom {
-      &:before {
-        border-color: #ccc;
-      }
-
-      &:after {
-        border-color: #ccc;
-      }
-    }
-
-    .title {
-      line-height: 0.54rem;
-      background: #eee;
-      padding-left: 0.2rem;
-      font-size: 0.26rem;
-      color: #666;
-    }
-
-    .button-list {
-      overflow: hidden;
-      padding: 0.1rem 0.6rem 0.1rem 0.1rem;
-
-      .button-wrapper {
-        float: left;
-        width: 33.33%;
-
-        .button {
-          margin: 0.1rem;
-          padding: 0.1rem 0;
-          text-align: center;
-          border: 0.02rem solid #ccc;
-          border-radius: 0.06rem;
+    .border-topbottom
+        &:before {
+            background-color: #ccc;
         }
-      }
+
+        &:after {
+            background-color: #ccc;
+        }
+
+    .border-bottom
+        &:before {
+            background-color: #ccc;
+        }
+
+    .list {
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 1.58rem;
+        bottom: 0;
+        right: 0;
+
+        .title {
+            line-height: .54rem;
+            background: #eee;
+            padding-left: .2rem;
+            color: #666;
+            font-size: .26rem;
+        }
+
+        .button-list {
+            padding: .1rem .6rem .1rem .1rem;
+            overflow: hidden;
+
+            .button-wrapper {
+                float: left;
+                width: 33.33%;
+
+                .button {
+                    margin: .1rem;
+                    padding: .1rem;
+                    text-align: center;
+                    border: .02rem solid #ccc;
+                    border-radius: .06rem;
+
+                }
+            }
+        }
+
+        .item-list {
+            .item {
+                line-height: .76rem;
+                color: #666;
+                padding-left: .2rem;
+
+            }
+        }
     }
 
-    .item-list {
-      .item {
-        line-height: 0.76rem;
-        padding-left: 0.2rem;
-        color: #666;
-      }
-    }
-  }
 </style>
