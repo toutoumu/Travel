@@ -62,6 +62,21 @@
         padding-bottom: 50%;
     }
 
+    /*使用注释掉的这个也可以实现同样效果, 但是要去掉.icon 里面的 float width height padding  */
+    /*.icons >>> .swiper-wrapper {
+        position: absolute !important;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+    }
+
+    .icons >>> .swiper-slide {
+        display: grid !important;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }*/
+
     .icons {
         margin-top: 0.1rem;
 
