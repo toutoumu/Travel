@@ -5,6 +5,7 @@
                 <span class="item-title-icon"></span>
                 {{ item.title }}
             </div>
+            <!--递归调用组件(自身)detail-list-->
             <div class="item-children" v-if="item.children">
                 <detail-list :list="item.children"></detail-list>
             </div>
@@ -40,6 +41,7 @@
         font-size: .32rem;
         padding: 0 .2rem;
     }
+
     .item-children {
         padding: 0 .4rem;
     }

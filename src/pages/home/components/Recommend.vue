@@ -4,7 +4,7 @@
         <ul>
             <!--tag 将其渲染成什么 这里讲 router-link 渲染成 li-->
             <router-link tag="li" v-for="(item) in recommendList" :key="item.id" class="item border-bottom"
-                         :to="{name: 'Detail', params:{id: item.id} }">
+                         :to="{ name: 'Detail', params:{id: item.id} }">
                 <img class="item-img" :src="item.imgUrl" alt>
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>

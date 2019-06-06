@@ -13,7 +13,7 @@ export default new Router({
         path: '/',
         name: 'Home',
         // component: Home
-        // 动态加载模块
+        // 动态加载模块, 把原来的 import Home from '@/pages/home/Home.vue'; 去掉修改为下面这个
         component: () => import('@/pages/home/Home.vue'),
     }, {
         path: '/city',

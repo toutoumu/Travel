@@ -17,9 +17,9 @@ module.exports = {
                 target: 'http://localhost:8080',
                 pathRewrite: {
                     // 将路径中的 [/api] 替换为 [/static/mock]
-                    '^/api': '/static/mock'
-                }
-            }
+                    '^/api': '/static/mock',
+                },
+            },
         },
 
         // Various Dev Server settings
@@ -29,7 +29,6 @@ module.exports = {
         errorOverlay: true,
         notifyOnErrors: true,
         poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
-
 
         /**
          * Source Maps
@@ -43,7 +42,7 @@ module.exports = {
         // https://vue-loader.vuejs.org/en/options.html#cachebusting
         cacheBusting: true,
 
-        cssSourceMap: true
+        cssSourceMap: true,
     },
 
     build: {
@@ -53,7 +52,10 @@ module.exports = {
         // Paths
         assetsRoot: path.resolve(__dirname, '../dist'),
         assetsSubDirectory: 'static',
-        // 如果需要把这东西放到一个目录中[project] 那么这里就需要配置这个目录
+        // 如果需要把这东西放到一个目录中[xxx] 那么这里就需要配置这个目录
+        // 如果是部署到tomcat 那么需要在 webapps 中新建 [xxx] 目录 并将 dist中的文件复制到这个目录
+        // 使用 http://localhost:8080/xxx访问
+        // assetsPublicPath: '/xxx',
         assetsPublicPath: '/',
 
         /**
@@ -75,6 +77,6 @@ module.exports = {
         // View the bundle analyzer report after build finishes:
         // `npm run build --report`
         // Set to `true` or `false` to always turn it on or off
-        bundleAnalyzerReport: process.env.npm_config_report
-    }
+        bundleAnalyzerReport: process.env.npm_config_report,
+    },
 }

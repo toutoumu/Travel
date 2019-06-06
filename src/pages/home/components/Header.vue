@@ -27,6 +27,7 @@
 
 
 <style lang="stylus" scoped>
+    // 需要在 webpack.base.conf.js 文件中创建别名 'styles': resolve('src/assets/styles'),
     /* scoped 这个样式只对当前组件有效 */
     /*关于为什么要加 ~ 请查看README文件*/
     @import '~styles/varibles.styl';
@@ -40,7 +41,6 @@
 
         .header-left {
             width: 0.64rem;
-            float: left;
 
             .back-icon {
                 text-align: center;
@@ -63,7 +63,6 @@
         .header-right {
             min-width: 1.04rem;
             padding: 0 .1rem
-            float: right;
             text-align: center;
             color: white;
 

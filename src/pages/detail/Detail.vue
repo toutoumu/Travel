@@ -28,11 +28,8 @@
         },
         methods: {
             getDetailInfo() {
-                axios.get('/api/detail.json', {
-                    params: {
-                        id: this.$route.params.id,
-                    },
-                }).then(this.handlerDetailInfo)
+                axios.get('/api/detail.json', {params: {id: this.$route.params.id}})
+                .then(this.handlerDetailInfo)
             },
             handlerDetailInfo(ret) {
                 ret = ret.data
@@ -45,7 +42,10 @@
                 }
             },
         },
-        mounted() {this.getDetailInfo()},
+        mounted() {
+            this.getDetailInfo()
+            this.$router.par
+        },
     }
 </script>
 

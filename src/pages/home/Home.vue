@@ -20,6 +20,8 @@
     export default {
         name: 'Home',
         components: {
+            // 动态组件在组件中这样使用
+            // HomeHeader: () => import('./components/Header.vue'),
             HomeHeader,
             HomeSwiper,
             HomeIcons,
@@ -41,6 +43,7 @@
         },
         methods: {
             getHomeInfo() {
+                // axios.get('/api/index.json', {params: {city: this.city}})
                 axios.get('/api/index.json?city=' + this.city).then(this.handlerHomeData)
             },
             handlerHomeData(ret) {
@@ -59,6 +62,7 @@
         },
         activated() {
             // 使用了keep-alive 之后会多两个生命周期函数
+            // 如果选择的城市改变, 回到该页面将会重新加载数据
             if (this.lastCity !== this.city) {
                 this.getHomeInfo()
                 this.lastCity = this.city

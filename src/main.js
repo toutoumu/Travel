@@ -15,7 +15,10 @@ import 'styles/border.css' // 一像素边框
 import 'styles/iconfont.css'
 
 Vue.config.productionTip = false
-fastClick.attach(document.body) // 移动端点击300ms延时问题
+// 解决移动端点击300毫秒延迟问题  npm install fastclick --save
+fastClick.attach(document.body)
+// 安装 npm install stylus --save
+// 安装 npm install stylus-loader --save
 Vue.use(VueAwesomeSwiper /* { default global options } */)
 
 /* eslint-disable no-new */
