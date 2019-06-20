@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title></title>
+    <script
+        src="http://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            $('img').css('width', '98%')
+            var u = navigator.userAgent
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1 //android终端
+            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) //ios终端
+            $('img').click(function() {
+                var src = $(this).attr('src')
+                var img_src = []
+                var i = 0
+                $(this).parents('body').find('img').each(function() {
+                    img_src[i] = $(this).attr('src')
+                    i++
+                })
+                var index
+                for (var i = 0; i < img_src.length; i++) {
+                    if (src == img_src[i]) {
+                        index = i
+                    }
+                }
+                console.log(img_src)
+                console.log(src)
+                console.log(index)
+                if (isAndroid) {
+                    img_src = JSON.stringify(img_src)
+                    console.log(img_src)
+                    hello.imglist(index, img_src)
+                } else if (isiOS) {
+                    img_src = JSON.stringify(img_src)
+                    window.imglist(index, img_src)
+                }
+
+            })
+        })
+    </script>
+</head>
+<body>
+myContent
+</body>
+</html>
