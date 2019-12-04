@@ -25,7 +25,9 @@
         },
         methods: {
             handlerScroll() {
-                const top = document.documentElement.scrollTop
+                // const top = document.documentElement.scrollTop
+                // 电脑浏览器使用上面这段代码没问题,但是在手机浏览器中使用会有问题
+                const top = Math.max(document.body.scrollTop, document.documentElement.scrollTop)
                 if (top > 60) {
                     let opacity = top / 140
                     opacity = opacity > 1 ? 1 : opacity
@@ -49,7 +51,7 @@
 <style lang="stylus" scoped>
     /*关于为什么要加 ~ 请查看README文件*/
     @import '~styles/varibles.styl';
-
+    
     .header-abs {
         position: absolute;
         left: .2rem;
@@ -60,14 +62,14 @@
         border-radius .4rem;
         text-align: center;
         background: rgba(0, 0, 0, 0.8);
-
+        
         .header-abs-back {
             color: #eee;
             font-size: .4rem;
-
+            
         }
     }
-
+    
     .header-fixed {
         z-index: 2;
         position: fixed;
@@ -79,7 +81,7 @@
         text-align: center;
         color: #fff;
         background: $bgColor;
-
+        
         .header-fixed-back {
             position: absolute;
             width: .64rem;

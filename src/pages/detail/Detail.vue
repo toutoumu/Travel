@@ -29,7 +29,7 @@
         methods: {
             getDetailInfo() {
                 axios.get('/api/detail.json', {params: {id: this.$route.params.id}})
-                .then(this.handlerDetailInfo)
+                    .then(this.handlerDetailInfo)
             },
             handlerDetailInfo(ret) {
                 ret = ret.data
