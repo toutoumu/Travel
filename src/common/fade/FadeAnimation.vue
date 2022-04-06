@@ -17,7 +17,7 @@
     // 过渡动画对应的class名称如下
     .v-enter, .v-leave-to {
         opacity: 0;
-        @include block;
+        //@include block;
     }
 
     // 过渡动画对应的class名称如下

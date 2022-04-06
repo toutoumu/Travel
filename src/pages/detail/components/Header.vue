@@ -51,7 +51,7 @@
 <style lang="stylus" scoped>
     /*关于为什么要加 ~ 请查看README文件*/
     @import '~styles/varibles.styl';
-    
+
     .header-abs {
         position: absolute;
         left: .2rem;
@@ -62,14 +62,14 @@
         border-radius .4rem;
         text-align: center;
         background: rgba(0, 0, 0, 0.8);
-        
+
         .header-abs-back {
             color: #eee;
             font-size: .4rem;
-            
+
         }
     }
-    
+
     .header-fixed {
         z-index: 2;
         position: fixed;
@@ -81,7 +81,7 @@
         text-align: center;
         color: #fff;
         background: $bgColor;
-        
+
         .header-fixed-back {
             position: absolute;
             width: .64rem;

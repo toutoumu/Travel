@@ -44,8 +44,8 @@
         },
         mounted() {
             this.getDetailInfo()
-            this.$router.par
         },
+        activated() {}
     }
 </script>
 
