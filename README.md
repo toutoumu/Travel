@@ -1,8 +1,41 @@
-### [去哪网地址](http://piao.qunar.com/touch/)
-### [iView Admin 后台管理模板GItHub](https://github.com/iview/iview-admin)
-### [iView Admin 后台管理模板](https://gitee.com/icarusion/iview-admin)
-####[Flex布局详解](https://www.cnblogs.com/qcloud1001/p/9848619.html)
-#### [vue组件name的作用小结](https://www.jb51.net/article/140702.htm)
+## vue cli安装使用
+```
+# 安装 vue-cli3 
+npm install -g @vue/cli
+# 桥接 vue-cli2 的init
+npm install -g @vue/cli-init
+# 创建项目 vue-cli3 
+vue create xxx
+# 创建项目 vue-cli2
+vue init webpack xxx
+
+# 初始化项目 
+npm install 
+# 运行项目
+npm run dev
+# 构建项目
+npm run build
+
+# 安装依赖
+npm install xxx --save
+```
+
+## 不错的文章
+[这些vue技巧，你值得拥有](https://juejin.im/post/5ef8050f5188252e8272bd01)
+
+[绝对干货~！学会这些Vue小技巧，可以早点下班和女神约会了](https://juejin.im/post/5eddbaee5188254344768fdc#heading-14)
+
+[实战技巧，Vue原来还可以这样写](https://juejin.im/post/5eef7799f265da02cd3b82fe)
+
+[Flex布局详解](https://www.cnblogs.com/qcloud1001/p/9848619.html)
+
+[vue组件name的作用小结](https://www.jb51.net/article/140702.htm)
+
+[去哪网地址](http://piao.qunar.com/touch/)
+
+[iView Admin 后台管理模板GItHub](https://github.com/iview/iview-admin)
+
+[iView Admin 后台管理模板](https://gitee.com/icarusion/iview-admin)
 
 #### 1. 第三方库
  0.  [一个凑合的 Vue.js 移动端 UI 组件库](https://vux.li/)
@@ -46,24 +79,24 @@
 
 #### 获取浏览器窗口的可视区域高度和宽度,滚动条高度有需要的朋友可参考一下。
 ```javascript
-document.body.clientWidth ==> BODY对象宽度
-document.body.clientHeight ==> BODY对象高度
-document.documentElement.clientWidth ==> 可见区域宽度
-document.documentElement.clientHeight ==> 可见区域高度
+document.body.clientWidth // ==> BODY对象宽度
+document.body.clientHeight // ==> BODY对象高度
+document.documentElement.clientWidth // ==> 可见区域宽度
+document.documentElement.clientHeight // ==> 可见区域高度
   
-document.body.clientWidth ==> 网页可见区域宽 
-document.body.clientHeight ==> 网页可见区域高
-document.body.offsetWidth ==> 网页可见区域宽(包括边线的宽)
-document.body.offsetHeight ==> 网页可见区域高(包括边线的高)
-document.body.scrollWidth ==> 网页正文全文宽document.body.scrollHeight ==> 网页正文全文高
-document.body.scrollTop ==> 网页被卷去的高
-document.body.scrollLeft ==> 网页被卷去的左
-window.screenTop ==> 网页正文部分上
-window.screenLeft ==> 网页正文部分左
-window.screen.height ==> 屏幕分辨率的高
-window.screen.width ==> 屏幕可用工作区高度
-window.screen.availHeight ==> 屏幕可用工作区高度
-window.screen.availWidth ==> 屏幕可用工作区宽度
+document.body.clientWidth // ==> 网页可见区域宽 
+document.body.clientHeight // ==> 网页可见区域高
+document.body.offsetWidth // ==> 网页可见区域宽(包括边线的宽)
+document.body.offsetHeight // ==> 网页可见区域高(包括边线的高)
+document.body.scrollWidth // ==> 网页正文全文宽document.body.scrollHeight // ==> 网页正文全文高
+document.body.scrollTop // ==> 网页被卷去的高
+document.body.scrollLeft // ==> 网页被卷去的左
+window.screenTop // ==> 网页正文部分上
+window.screenLeft // ==> 网页正文部分左
+window.screen.height // ==> 屏幕分辨率的高
+window.screen.width // ==> 屏幕可用工作区高度
+window.screen.availHeight // ==> 屏幕可用工作区高度
+window.screen.availWidth // ==> 屏幕可用工作区宽度
 ```
 
 ####  部分jquery函数获取方法
@@ -82,20 +115,20 @@ $(document.body).outerWidth(true)　//浏览器时下窗口文档body的总宽�
 ```javascript
 alert($(document).scrollTop()); //获取滚动条到顶部的垂直高度
 alert($(document).scrollLeft()); //获取滚动条到左边的垂直宽度
-HTML精确定位:  scrollLeft,scrollWidth,clientWidth,offsetWidth   
-scrollHeight: 获取对象的滚动高度。   
-scrollLeft: 设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离   
-scrollTop:  设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离   
-scrollWidth: 获取对象的滚动宽度   
-offsetHeight:获取对象相对于版面或由父坐标 offsetParent 属性指定的父坐标的高度   
-offsetLeft: 获取对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置   
-offsetTop:  获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置   
-event.clientX 相对文档的水平座标   
-event.clientY 相对文档的垂直座标   
-event.offsetX 相对容器的水平坐标   
-event.offsetY 相对容器的垂直坐标   
-document.documentElement.scrollTop 垂直方向滚动的值   
-event.clientX+document.documentElement.scrollTop 相对文档的水平座标+垂直方向滚动的量
+// HTML精确定位:  scrollLeft,scrollWidth,clientWidth,offsetWidth   
+// scrollHeight: 获取对象的滚动高度。   
+// scrollLeft: 设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离   
+// scrollTop:  设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离   
+// scrollWidth: 获取对象的滚动宽度   
+// offsetHeight:获取对象相对于版面或由父坐标 offsetParent 属性指定的父坐标的高度   
+// offsetLeft: 获取对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置   
+// offsetTop:  获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置   
+event.clientX // 相对文档的水平座标   
+event.clientY // 相对文档的垂直座标   
+event.offsetX // 相对容器的水平坐标   
+event.offsetY // 相对容器的垂直坐标   
+document.documentElement.scrollTop // 垂直方向滚动的值   
+event.clientX+document.documentElement.scrollTop // 相对文档的水平座标+垂直方向滚动的量
 ```
 
 ```javascript
@@ -128,11 +161,11 @@ event.clientX+document.documentElement.scrollTop 相对文档的水平座标+垂
                    :document.body,
              gcr = page.getbBoundingClientRect()
          return {
-            width:Math.abs(gcr.right-gcr.left)
+            width:Math.abs(gcr.right-gcr.left),
             height:Math.abs(gcr.bottom-gcr.top)
          }
       }
-      (移动端，一般用inner就ok了)
+      // (移动端，一般用inner就ok了)
       width = window.innerWidth
       height =  window.innerHeight
 获取element宽高

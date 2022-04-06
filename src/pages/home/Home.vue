@@ -16,7 +16,7 @@
     import HomeWeekend from './components/Weekend.vue'
     import axios from 'axios'
     import {mapState} from 'vuex'
-
+    
     export default {
         name: 'Home',
         components: {
@@ -67,8 +67,8 @@
                 this.getHomeInfo()
                 this.lastCity = this.city
             }
-        },
-    }
+        }
+	}
 </script>
 
 <style lang="stylus" scoped>
